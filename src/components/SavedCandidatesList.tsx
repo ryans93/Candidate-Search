@@ -20,12 +20,15 @@ export const SavedCandidatesProvider = ({ children }: { children: ReactNode }) =
       });
 
   useEffect(() => {
+    console.log("hello")
     localStorage.setItem("savedCandidates", JSON.stringify(savedCandidates));
+    console.log("hello again")
   }, [savedCandidates]);
 
   const addCandidate = (candidate: Candidate) => {
     console.log("here")
     setSavedCandidates(prev => [...prev, candidate]);
+    console.log("now here")
   };
 
   const removeCandidate = (username: string) => {
