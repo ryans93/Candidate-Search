@@ -2,11 +2,15 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
-  const [page, setPage] = useState<string>("home")
+  const [page, setPage] = useState<string>(() => {
+    if(location.pathname === "/"){
+      return "home";
+    }
+    return "potential";
+  })
   const navigate = useNavigate();
 
   function handlePageChange(link: string): void {
-    console.log("link " + link)
     if (link === page) {
       return;
     }
