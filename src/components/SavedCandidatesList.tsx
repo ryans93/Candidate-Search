@@ -15,20 +15,21 @@ const SavedCandidatesContext = createContext<SavedCandidatesContextType | undefi
 export const SavedCandidatesProvider = ({ children }: { children: ReactNode }) => {
   const [savedCandidates, setSavedCandidates] =
     useState<Candidate[]>(() => {
+        if (typeof window !== "undefined"){
         const saved = localStorage.getItem("savedCandidates");
         return saved ? JSON.parse(saved) : [];
+        }
+        return [];
       });
 
   useEffect(() => {
-    console.log("hello")
-    localStorage.setItem("savedCandidates", JSON.stringify(savedCandidates));
-    console.log("hello again")
+    if (typeof window !== "undefined"){
+        localStorage.setItem("savedCandidates", JSON.stringify(savedCandidates));
+    }
   }, [savedCandidates]);
 
   const addCandidate = (candidate: Candidate) => {
-    console.log("here")
     setSavedCandidates(prev => [...prev, candidate]);
-    console.log("now here")
   };
 
   const removeCandidate = (username: string) => {
