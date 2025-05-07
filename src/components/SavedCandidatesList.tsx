@@ -24,6 +24,7 @@ export const SavedCandidatesProvider = ({ children }: { children: ReactNode }) =
   }, [savedCandidates]);
 
   const addCandidate = (candidate: Candidate) => {
+    console.log("here")
     setSavedCandidates(prev => [...prev, candidate]);
   };
 
