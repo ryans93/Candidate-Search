@@ -16,7 +16,7 @@ export const SavedCandidatesProvider = ({ children }: { children: ReactNode }) =
   const [savedCandidates, setSavedCandidates] =
     useState<Candidate[]>(() => {
         const saved = localStorage.getItem("savedCandidates");
-        return saved ? JSON.parse(saved) : 0;
+        return saved ? JSON.parse(saved) : [];
       });
 
   useEffect(() => {

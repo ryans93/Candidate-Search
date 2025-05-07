@@ -15,18 +15,24 @@ function SavedCandidate(props: CandidateProps) {
 
     return (
         <tr>
-            <td className="tableImage"><img src={props.candidate.avatar} alt="candidate avatar" style={{
-                height: "10vh",
-                width: "10vh",
-                borderRadius: "25px"
-            }}></img></td>
+            <td >
+                <div className="tableImage">
+                    <img src={props.candidate.avatar} alt="candidate avatar" style={{
+                        height: "10vh",
+                        width: "10vh",
+                        borderRadius: "25px"
+                    }}></img>
+                </div>
+            </td>
             <td>{`${props.candidate.name}\n(${props.candidate.username})`}</td>
             <td>{props.candidate.location}</td>
             <td>{props.candidate.email}</td>
             <td>{props.candidate.username}</td>
             <td>{props.candidate.bio}</td>
-            <td className="tableImage">
+            <td>
+                <div className="tableImage">
                 <IoCloseCircle className="candidateButton" fill="red" size="5em" onClick={() => (rejectCandidate(props.candidate.username))} />
+                </div>
             </td>
         </tr>
     )

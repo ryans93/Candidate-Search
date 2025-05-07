@@ -145,6 +145,7 @@ tbody tr:nth-child(odd) {
 .tableImage {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 td {
